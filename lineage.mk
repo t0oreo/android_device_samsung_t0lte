@@ -9,7 +9,7 @@ TARGET_SCREEN_WIDTH := 720
 $(call inherit-product, device/samsung/t0lte/full_t0lte.mk)
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := t0lte
