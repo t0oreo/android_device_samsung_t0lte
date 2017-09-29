@@ -19,10 +19,13 @@
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 
-#include "vendor_init.h"
+#include <android-base/properties.h>
+
 #include "property_service.h"
+#include "vendor_init.h"
 #include "log.h"
-#include "util.h"
+
+using android::base::GetProperty;
 
 void property_override(char const prop[], char const value[])
 {
@@ -37,7 +40,7 @@ void property_override(char const prop[], char const value[])
 
 void vendor_load_properties()
 {
-    std::string bootloader = property_get("ro.bootloader");
+    std::string bootloader = GetProperty("ro.bootloader", "");
     if (bootloader.find("I317") != std::string::npos) {
         /* SGH-i317 (AT&T) */
         property_override("ro.product.model", "SGH-I317");
@@ -102,6 +105,6 @@ void vendor_load_properties()
         property_override("ro.build.fingerprint", "samsung/t0ltexx/t0lte:4.4.2/KOT49H/N7105XXUFOB2:user/release-keys");
         property_override("ro.build.product", "t0lte");
     }
-    std::string device = property_get("ro.product.device");
-    INFO("Setting device to %s\n", device.c_str());
+    std::string device = GetProperty("ro.product.device", "");
+    LOG(INFO) << "Setting device to " << device.c_str() << "\n";
 }
