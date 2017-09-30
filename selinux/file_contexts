@@ -15,7 +15,7 @@
 
 /dev/ttyUSB0					u:object_r:serial_device:s0
 /dev/ttySAC0					u:object_r:serial_device:s0
-/dev/ttySAC1					u:object_r:gps_device:s0
+#/dev/ttySAC1					u:object_r:gps_device:s0
 
 /dev/mdm					u:object_r:radio_device:s0
 /dev/rfkill					u:object_r:radio_device:s0
