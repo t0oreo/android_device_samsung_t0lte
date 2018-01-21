@@ -51,12 +51,12 @@ PRODUCT_PACKAGES += \
     sensors.smdk4x12
 
 # NFC
-PRODUCT_PACKAGES += \
-    nfc.exynos4 \
-    libnfc \
-    libnfc_jni \
-    Nfc \
-    Tag
+# PRODUCT_PACKAGES += \
+#   nfc.exynos4 \
+#   libnfc \
+#   libnfc_jni \
+#   Nfc \
+#   Tag
 
 # RIL
 PRODUCT_PACKAGES += \
