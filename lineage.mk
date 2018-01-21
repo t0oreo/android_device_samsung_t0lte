@@ -17,3 +17,6 @@ PRODUCT_NAME := lineage_t0lte
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := GT-N7105
 PRODUCT_MANUFACTURER := samsung
+
+# Allow missing dependencies
+ALLOW_MISSING_DEPENDENCIES=true
