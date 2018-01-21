@@ -134,7 +134,9 @@ int SensorBase::openInput(const char* inputName) {
 
 int SensorBase::batch(int handle, int flags, int64_t period_ns, int64_t timeout)
 {
-    return 0;
+    (void)flags;
+    (void)timeout;
+    return setDelay(handle, period_ns);
 }
 
 int SensorBase::flush(int handle)

@@ -170,6 +170,14 @@ int AkmSensor::setDelay(int32_t handle, int64_t ns)
     if (sensor_type == 0)
         return -EINVAL;
 
+    switch (handle) {
+        case ID_A: what = Accelerometer; break;
+        case ID_M: what = MagneticField; break;
+        case ID_O: what = Orientation;   break;
+    }
+    if (uint32_t(what) >= numSensors)
+        return -EINVAL;
+
     fd = open("/sys/class/sensors/ssp_sensor/mag_poll_delay", O_RDWR);
     if (fd >= 0) {
         char buf[80];
@@ -272,4 +280,8 @@ void AkmSensor::processEvent(int code, int value)
             mPendingEvents[MagneticField].magnetic.z = value * CONVERT_M_Z;
             break;
     }
+}
+
+int AkmSensor::batch(int handle, int flags, int64_t period_ns, int64_t timeout) {
+    return 0;
 }
